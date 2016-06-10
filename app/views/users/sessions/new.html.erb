@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Webpage</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+</head>
+
+<div class="container-fluid">
+  <div class="row p-wrapper">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+
+      <div class="col-md-4 col-md-offset-4" style="margin-top:10%;">
+
+        <div class="" align="center">
+          <h1 style="margin:0px auto; width: 72%;">
+
+                <%= image_tag "myLogo.png", alt: "" %></h1></br>
+
+
+
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+                <div class="form-group">
+                  <label for="exampleInputEmail1" class="sr-only">Email address</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><%= image_tag "email1.jpg" %></span>
+                    <%= f.text_field :email, class: 'form-control p-form-control', placeholder: "Please enter email", tabindex: "1" %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1" class="sr-only">Password</label>
+
+                  <div class="input-group">
+                    <span class="input-group-addon"><%= image_tag "lock.jpg" %></span>
+                    <%= f.password_field :password, class: 'form-control p-form-control', placeholder: "Password", tabindex: "2" %>
+                  </div>
+                  <div class="checkbox" style="width: 41%; float: left;">
+                    <label>
+                      <input type="checkbox">Remember Me
+                    </label>
+                  </div>
+
+
+                      <div class="pull-right small" style="margin-top:14px;">
+                        <%#= link_to "Forgot Password?", new_password_path(resource_name) %>
+                  <span><%= link_to "Sign Up",  new_user_registration_path %></span></div>
+
+              </div>
+                <%= f.submit "Login", class: "btn btn-lg btn-primary btn-block p-roundedC" %>
+            <% end %>
+          <%= link_to "Forgot Password?", new_password_path(resource_name) %>
+
+        </div>
+        </br>
+
+
+
+        <% if notice.present? %>
+            <p class="alert alert-info" style="text-align: center"><%= notice %></p>
+        <% end %>
+        <% if flash[:email_error].present? || flash[:password_error].present? %>
+            <div class="alert alert-danger" style="color: red;">
+              <% if alert.present? %>
+                  <%= alert %>
+              <% else %>
+                  <div class="clearfix"></div>
+                  <%= flash[:email_error] %>
+                  <div class="clearfix"></div>
+                  <%= flash[:password_error] %>
+              <% end %>
+            </div>
+        <% end %>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<%#= render "users/shared/links" %>

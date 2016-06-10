@@ -1,0 +1,110 @@
+<div class="container-fluid">
+  <div class="row p-wrapper">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <div class="col-md-4 col-md-offset-4" style="margin-top:10%;">
+        <div class="">
+          <h1 style="margin:0px auto; width: 72%;">
+            <div class="text-center">
+              <%= image_tag "myLogo.png", style: "width:184px" %>
+          </h1>
+          </br>
+        </div>
+        <h3 class="text-center">Sign up</h3>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), validate: true) do |f| %>
+            <div class="field">
+                <label for="exampleInputEmail1" class="sr-only">Name</label>
+                  <%= f.text_field :name, placeholder: "Name", class: 'form-control', autofocus: true  %>
+            </div></br>
+
+            <div class="field">
+                <label for="exampleInputEmail1" class="sr-only">Email address</label>
+                  <%= f.text_field :email, placeholder: "Email", class: 'form-control', autofocus: true %>
+            </div></br>
+
+            <div class="field">
+                <label for="exampleInputEmail1" class="sr-only">Mobile Number</label>
+                  <%= f.text_field :mobile_number, placeholder: "Mobile Number", :maxlength => "10", class: 'form-control' %>
+            </div></br>
+
+            <div class="field">
+                <label for="exampleInputEmail1" class="sr-only">Organization Name</label>
+                  <%= f.text_field :org_name, placeholder: "Organization Name", class: 'form-control' %>
+            </div></br>
+
+            <div class="field">
+                <label for="exampleInputEmail1" class="sr-only">App Name</label>
+                  <%= f.text_field :app_name, placeholder: "App Name", class: 'form-control' %>
+                </div></br>
+
+
+            <div class="field">
+                <label for="exampleInputEmail1" class="sr-only">Icon</label>
+              <div class="fileAlign fawidth">
+                <span class="docs_style" id='val'><%= f.object.icon_file_name  %></span>
+                <%= f.file_field :icon, placeholder: "Icon", id: 'i_file' %>
+                <span id='button'>Upload Icon</span>
+              </div>
+              </div>
+              </br>
+
+            <div class="field">
+              <label for="exampleInputEmail1" class="sr-only">Image</label>
+              <div class="fileAlign fawidth">
+                <span class="docs_style" id='ad_val'><%= f.object.app_landing_image_file_name%></span>
+                <%= f.file_field :app_landing_image, id: 'i_file1' %>
+                <span id='button' class="ad_button">Upload Image</span>
+              </div>
+            </div>
+            </br>
+
+            <div class="field">
+                <label for="exampleInputEmail1" class="sr-only">Theme</label>
+                  <%= f.text_field :theme, placeholder: "Theme", class: 'form-control minicolor',:id => "picker", data: { 'no-turbolink'=>true}, as: :minicolors,   input_html: {data: {minicolors: {theme: :bootstrap, position: :right}}}  %>
+            </div></br>
+
+            <div class="field">
+              <label for="exampleInputPassword1" class="sr-only">Password</label>
+                <%= f.password_field :password, class: 'form-control', placeholder: "Password" %>
+            </div></br>
+
+            <div class="field">
+              <label for="exampleInputPassword1" class="sr-only">Password</label>
+                <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "Confirm Password" %>
+              </div>
+
+            <div class="actions" style="margin-top: 20px;">
+              <%= f.submit "Sign up", class: "btn btn-lg btn-primary btn-block p-roundedC" %>
+            </div>
+            </br>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+    $('#picker').minicolors()
+    $('#button').click(function () {
+        $("#i_file").trigger('click');
+    })
+    $("#i_file").change(function () {
+        $('#val').text(this.value.replace(/C:\\fakepath\\/i, ''))
+    })
+
+    $('.ad_button').click(function () {
+        $("#i_file1").trigger('click');
+    })
+    $("#i_file1").change(function () {
+        $('#ad_val').text(this.value.replace(/C:\\fakepath\\/i, ''))
+    })
+
+
+</script>
+
+<script type="text/javascript">(document).ready(function() {
+    if ($('.minicolor').length > 0) {
+        var data = $('#picker');
+        $.each(data, function(i) {
+            minicolors.replace(data[i].id);
+        });
+    }
+});</script>
