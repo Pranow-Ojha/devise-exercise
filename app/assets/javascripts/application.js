@@ -14,6 +14,5 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require scrolling-nav
-//= require jquery.easing.min
 //= require jquery.minicolors
 //= require_tree .
