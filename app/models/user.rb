@@ -12,12 +12,14 @@ class User < ActiveRecord::Base
   validates :name, presence: {message: "Please enter Name"}
   validates :mobile_number,:presence => {message: "Please enter Mobile Number"}
   validates :mobile_number, :numericality => {message: "Please enter Number Format"}
+  validates_length_of :mobile_number, :minimum => 10, :maximum => 10
   validates :app_landing_image ,presence: {message: "Please choose Image"}
   validates :icon ,presence: {message: "Please choose Icon"}
   validates :theme ,presence: {message: "Please select Theme"}
   validates :org_name ,presence: {message: "Please enter Oragnization Name"}
   validates :app_name ,presence: {message: "Please enter App Name"}
   validates :email, presence: {message: "Please enter Email"}
+  validates :email, :allow_blank => true,:format => {:with => /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i}
   validates :password, presence: {message: "Please enter New Password"}
 
   # validate :check_content_type_of_icon
