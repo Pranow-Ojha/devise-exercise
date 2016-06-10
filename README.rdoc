@@ -3,6 +3,9 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
+Using Postgresql since, it has native inet type, which holds the ipv4 and ipv6 hosts, so please give your username and password in database.yml file when you migrate files
+
+
 Things you may want to cover:
 
 * Ruby version --> 2.2.1
