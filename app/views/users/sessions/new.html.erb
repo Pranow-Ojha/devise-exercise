@@ -18,40 +18,43 @@
         <div class="" align="center">
           <h1 style="margin:0px auto; width: 72%;">
 
-                <%= image_tag "myLogo.png", alt: "" %></h1></br>
+            <%= image_tag "myLogo.png", alt: "" %></h1></br>
 
 
 
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-                <div class="form-group">
-                  <label for="exampleInputEmail1" class="sr-only">Email address</label>
-                  <div class="input-group">
-                    <span class="input-group-addon"><%= image_tag "email1.jpg" %></span>
-                    <%= f.text_field :email, class: 'form-control p-form-control', placeholder: "Please enter email", tabindex: "1" %>
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="sr-only">Email address</label>
+
+                <div class="input-group">
+                  <span class="input-group-addon"><%= image_tag "email1.jpg" %></span>
+                  <%= f.text_field :email, class: 'form-control p-form-control', placeholder: "Please enter email", tabindex: "1" %>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1" class="sr-only">Password</label>
+
+                <div class="input-group">
+                  <span class="input-group-addon"><%= image_tag "lock.jpg" %></span>
+                  <%= f.password_field :password, class: 'form-control p-form-control', placeholder: "Password", tabindex: "2" %>
+                </div>
+                <div class="checkbox" style="width: 41%; float: left;">
+                  <% if devise_mapping.rememberable? %>
+                      <div class="col-md-10 pull-left text-left">
+                        <%= f.check_box :remember_me, id: "remember_me", class: "pull-left" %>
+                        Remember Me
+                  <% end %>
                   </div>
                 </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1" class="sr-only">Password</label>
-
-                  <div class="input-group">
-                    <span class="input-group-addon"><%= image_tag "lock.jpg" %></span>
-                    <%= f.password_field :password, class: 'form-control p-form-control', placeholder: "Password", tabindex: "2" %>
-                  </div>
-                  <div class="checkbox" style="width: 41%; float: left;">
-                    <label>
-                      <input type="checkbox">Remember Me
-                    </label>
-                  </div>
 
 
-                      <div class="pull-right small" style="margin-top:14px;">
-                        <%#= link_to "Forgot Password?", new_password_path(resource_name) %>
-                  <span><%= link_to "Sign Up",  new_user_registration_path %></span></div>
+                <div class="pull-right small" style="margin-top:14px;">
+                  <span><%= link_to "Sign Up", new_user_registration_path %></span></div>
 
               </div>
-                <%= f.submit "Login", class: "btn btn-lg btn-primary btn-block p-roundedC" %>
-            <% end %>
+              <%= f.submit "Login", class: "btn btn-lg btn-primary btn-block p-roundedC" %>
+          <% end %>
           <%= link_to "Forgot Password?", new_password_path(resource_name) %>
 
         </div>

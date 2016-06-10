@@ -9,79 +9,89 @@
             </div>
           </h1>
           </br>
-        <h3 class="text-center">Sign up</h3>
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), validate: true) do |f| %>
-            <div class="field">
+          <h3 class="text-center">Sign up</h3>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), validate: true) do |f| %>
+              <div class="field">
                 <label for="exampleInputEmail1" class="sr-only">Name</label>
-                  <%= f.text_field :name, placeholder: "Name", class: 'form-control', autofocus: true  %>
-            </div></br>
-
-            <div class="field">
-                <label for="exampleInputEmail1" class="sr-only">Email address</label>
-                  <%= f.text_field :email, placeholder: "Email", class: 'form-control', autofocus: true %>
-            </div></br>
-
-            <div class="field">
-                <label for="exampleInputEmail1" class="sr-only">Mobile Number</label>
-                  <%= f.text_field :mobile_number, placeholder: "Mobile Number", :maxlength => "10", class: 'form-control' %>
-            </div></br>
-
-            <div class="field">
-                <label for="exampleInputEmail1" class="sr-only">Organization Name</label>
-                  <%= f.text_field :org_name, placeholder: "Organization Name", class: 'form-control' %>
-            </div></br>
-
-            <div class="field">
-                <label for="exampleInputEmail1" class="sr-only">App Name</label>
-                  <%= f.text_field :app_name, placeholder: "App Name", class: 'form-control' %>
-                </div></br>
-
-
-            <div class="field">
-                <label for="exampleInputEmail1" class="sr-only">Icon</label>
-              <div class="fileAlign fawidth">
-                <span class="docs_style" id='val'><%= f.object.icon_file_name  %></span>
-                <%= f.file_field :icon, placeholder: "Icon", id: 'i_file' %>
-                <span id='button'>Upload Icon</span>
-              </div>
+                <%= f.text_field :name, placeholder: "Name", class: 'form-control', autofocus: true %>
               </div>
               </br>
 
-            <div class="field">
-              <label for="exampleInputEmail1" class="sr-only">Image</label>
-              <div class="fileAlign fawidth">
-                <span class="docs_style" id='ad_val'><%= f.object.app_landing_image_file_name%></span>
-                <%= f.file_field :app_landing_image, id: 'i_file1' %>
-                <span id='button' class="ad_button">Upload Image</span>
+              <div class="field">
+                <label for="exampleInputEmail1" class="sr-only">Email address</label>
+                <%= f.text_field :email, placeholder: "Email", class: 'form-control', autofocus: true %>
               </div>
-            </div>
-            </br>
+              </br>
 
-            <div class="field">
+              <div class="field">
+                <label for="exampleInputEmail1" class="sr-only">Mobile Number</label>
+                <%= f.text_field :mobile_number, placeholder: "Mobile Number", :maxlength => "10", class: 'form-control' %>
+              </div>
+              </br>
+
+              <div class="field">
+                <label for="exampleInputEmail1" class="sr-only">Organization Name</label>
+                <%= f.text_field :org_name, placeholder: "Organization Name", class: 'form-control' %>
+              </div>
+              </br>
+
+              <div class="field">
+                <label for="exampleInputEmail1" class="sr-only">App Name</label>
+                <%= f.text_field :app_name, placeholder: "App Name", class: 'form-control' %>
+              </div>
+              </br>
+
+
+              <div class="field">
+                <label for="exampleInputEmail1" class="sr-only">Icon</label>
+
+                <div class="fileAlign fawidth">
+                  <span class="docs_style" id='val'><%= f.object.icon_file_name %></span>
+                  <%= f.file_field :icon, placeholder: "Icon", id: 'i_file' %>
+                  <span id='button'>Upload Icon</span>
+                </div>
+              </div>
+              </br>
+
+              <div class="field">
+                <label for="exampleInputEmail1" class="sr-only">Image</label>
+
+                <div class="fileAlign fawidth">
+                  <span class="docs_style" id='ad_val'><%= f.object.app_landing_image_file_name %></span>
+                  <%= f.file_field :app_landing_image, id: 'i_file1' %>
+                  <span id='button' class="ad_button">Upload Image</span>
+                </div>
+              </div>
+              </br>
+
+              <div class="field">
                 <label for="exampleInputEmail1" class="sr-only">Theme</label>
-                  <%= f.text_field :theme, placeholder: "Theme", class: 'form-control minicolor',:id => "picker", data: { 'no-turbolink'=>true}, as: :minicolors,   input_html: {data: {minicolors: {theme: :bootstrap, position: :right}}}  %>
-            </div></br>
+                <%= f.text_field :theme, placeholder: "Theme", class: 'form-control minicolor', validate: false, :id => "picker", data: {'no-turbolink' => true}, as: :minicolors, input_html: {data: {minicolors: {theme: :bootstrap, position: :right}}} %>
+                <span class="" id="picker-show" style="display: none;font-size: 13px;color: red; font-weight: bold"> Please Select Theme</span>
+              </div>
+              </br>
 
-            <div class="field">
-              <label for="exampleInputPassword1" class="sr-only">Password</label>
+              <div class="field">
+                <label for="exampleInputPassword1" class="sr-only">Password</label>
                 <%= f.password_field :password, class: 'form-control', placeholder: "Password" %>
-            </div></br>
+              </div>
+              </br>
 
-            <div class="field">
-              <label for="exampleInputPassword1" class="sr-only">Password</label>
+              <div class="field">
+                <label for="exampleInputPassword1" class="sr-only">Password</label>
                 <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "Confirm Password" %>
               </div>
 
-            <div class="actions" style="margin-top: 20px;">
-              <%= f.submit "Sign up", class: "btn btn-lg btn-primary btn-block p-roundedC" %>
-            </div>
-            </br>
-        <% end %>
+              <div class="actions" style="margin-top: 20px;">
+                <%= f.submit "Sign up", class: "btn btn-lg btn-primary btn-block p-roundedC" %>
+              </div>
+              </br>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
 </div>
-  </div>
 
 <script>
     $('#picker').minicolors();
@@ -100,6 +110,24 @@
         $('#ad_val').text(this.value.replace(/C:\\fakepath\\/i, ''))
     })
 
+
+    errorcount = 0;
+    $(function () {
+        $('#picker').blur(function() {
+            var x = $(this).val();
+            x = $(this).val();
+            //alert ("Noigits"+x.length);
+            if (x.theme == "") {
+                //alert("here too "+x );
+                $("#picke-show").hide();
+            }
+            else {
+                //alert('here');
+                $("#picker-show").show();
+                errorcount++;
+            }
+        });
+        });
 
 </script>
 
