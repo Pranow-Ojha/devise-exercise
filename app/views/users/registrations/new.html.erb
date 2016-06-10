@@ -6,9 +6,9 @@
           <h1 style="margin:0px auto; width: 72%;">
             <div class="text-center">
               <%= image_tag "myLogo.png", style: "width:184px" %>
+            </div>
           </h1>
           </br>
-        </div>
         <h3 class="text-center">Sign up</h3>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), validate: true) do |f| %>
             <div class="field">
@@ -81,8 +81,11 @@
     </div>
   </div>
 </div>
+  </div>
+
 <script>
-    $('#picker').minicolors()
+    $('#picker').minicolors();
+
     $('#button').click(function () {
         $("#i_file").trigger('click');
     })
@@ -100,11 +103,3 @@
 
 </script>
 
-<script type="text/javascript">(document).ready(function() {
-    if ($('.minicolor').length > 0) {
-        var data = $('#picker');
-        $.each(data, function(i) {
-            minicolors.replace(data[i].id);
-        });
-    }
-});</script>

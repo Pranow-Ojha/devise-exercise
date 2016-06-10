@@ -16,5 +16,4 @@
 //= require scrolling-nav
 //= require jquery.easing.min
 //= require jquery.minicolors
-//= require wow
 //= require_tree .
