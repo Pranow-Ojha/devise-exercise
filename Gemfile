@@ -48,5 +48,6 @@ group :development do
   gem 'paperclip'
   gem 'jquery-minicolors-rails'
   gem 'client_side_validations'
+  gem 'jquery-datatables-rails'
 end
 

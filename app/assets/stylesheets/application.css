@@ -18,6 +18,9 @@
  *= require home.scss
  *= require scrolling-nav
  *= require jquery.minicolors
+ *= require dataTables/jquery.dataTables
+ *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
+ *= require dataTables/src/demo_table_jui
  *= require webpage
  *= require_self
  */

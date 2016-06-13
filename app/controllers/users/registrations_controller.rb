@@ -19,17 +19,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def user_params
-    params.require(:user).permit(:name, :mobile_number, :email, :password, :password_confirmation, :org_name, :app_name, :icon, :app_landing_image, :theme)
+    params.require(:user).permit(:name, :mobile_number, :email, :password, :password_confirmation, :org_name, :app_name, :icon, :app_landing_image, :theme, :role, :pin_code, :date_of_birth, :address)
   end
 
   protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) do |u|
-      u.permit(:name, :mobile_number, :email, :password, :password_confirmation, :org_name, :app_name, :icon, :app_landing_image, :theme)
+      u.permit(:name, :mobile_number, :email, :password, :password_confirmation, :org_name, :app_name, :icon, :app_landing_image, :theme, :role, :pin_code, :date_of_birth, :address)
     end
     devise_parameter_sanitizer.for(:account_update) do |u|
-      u.permit(:name, :mobile_number, :email, :password, :password_confirmation, :current_password, :org_name, :app_name, :icon, :app_landing_image, :theme)
+      u.permit(:name, :mobile_number, :email, :password, :password_confirmation, :current_password, :org_name, :app_name, :icon, :app_landing_image, :theme, :role, :pin_code, :date_of_birth, :address)
     end
   end
 

@@ -1,0 +1,131 @@
+<body>
+<div class="container-fluid">
+  <% if user_signed_in? %>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 p-gray-bg" style="padding:5px 0px;">
+          <div class="col-xs-3 col-sm-3 col-md-3">
+          </div>
+          <div class="col-xs-9 col-sm-9 col-md-9">
+            <ul class="nav navbar-nav navbar-right p-right-adm">
+              <li>
+                <%= image_tag current_user.icon(:thumb), :class => "img-circular" %>
+                <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+  <% end %>
+  </li>
+  </ul>
+  </div>
+  </div>
+  </div>
+
+</div>
+<div class="clearfix"></div>
+</body>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="col-xs-12 col-sm-12 col-md-12 p-bottom-border p-padding-none" style="margin-bottom:10px;"></br>
+          <%= link_to("+ Add New", home_new_user_register_path(:id => params[:id]), class: "pull-right btn btn-primary") %></h4>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 p-padding-none">
+          <table id="datatableval" class="display table table-striped table-bordered">
+            <thead>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Role</th>
+            <th class="no-sort">Action</th>
+            </thead>
+            <tbody>
+
+            <% @users.each do |u| %>
+
+                <tr>
+                  <td><%= u.email %></td>
+                  <td><%= u.name %></td>
+                  <td><%= u.mobile_number %></td>
+                  <td><%= u.role %></td>
+                  <td>
+                 <span data-toggle="tooltip" data-placement="top" title="Remove User">
+                    <%= link_to (image_tag "delete.png"), '#', 'data-target' => "#myModal_#{u.id}", 'data-toggle' => 'modal' %>
+                   <div class="modal fade" id='<%= "myModal_#{u.id}" %>' tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                     <div class="modal-dialog">
+                       <div class="modal-content">
+                         <div class="modal-header">
+                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                           <h4 class="modal-title" id="myModalLabel">Delete user</h4>
+                         </div>
+                         <div class="modal-body" style="color:red">
+                           Are you sure you want to delete this user?
+                         </div>
+                         <div class="modal-footer">
+                           <%= form_tag(home_remove_user_path) do %>
+                               <%= hidden_field_tag :user_id, u.id %>
+                               <%= button_tag "Delete", class: "btn btn-default" %>
+                               <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                           <% end %>
+                         </div>
+                       </div>
+                       <!-- /.modal-content -->
+                     </div>
+                     <!-- /.modal-dialog -->
+                   </div>
+                   </span>
+                    <!-- /.modal -->
+                  </td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+
+
+        <div class="col-xs-12 col-sm-12 col-md-12 p-padding-none" style="margin:20px 0px;">
+          <div class="col-xs-6 col-sm-6 col-md-6">
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6">
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div id="dialogbox"></div>
+            <span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="row"></br>
+    <div class="col-xs-12 col-sm-12 col-md-12 p-gray-bg-top">
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+<script>
+    $(document).ready(function()
+            {
+
+                table = $('#datatableval').DataTable( {
+                    retrieve: true,
+                    sPaginationType: "full_numbers",
+                    bJQueryUI: true,
+                    responsive: true,
+                    "order": [],
+                    "columnDefs": [ {
+                        "targets"  : 'no-sort',
+                        "orderable": false
+
+                    }]
+                } );
+            }
+    );
+
+</script>

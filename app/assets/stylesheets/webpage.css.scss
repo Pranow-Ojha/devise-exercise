@@ -12,7 +12,6 @@
   font-size: 12px;
 }
 
-.required:after { content:" *"; }
 
 
 .input-group-addon {
@@ -646,7 +645,6 @@ input[type='file'] {
   top: 4px;
 }
 
-label.required1:after{content:" * ";color:red;}
 
 .fawidth{width:100% !important;}
 @media (max-width:768px){
@@ -676,12 +674,18 @@ input[type="radio"] {
 }
 
 
-* {font-family: Arial; font-size: 14px;}
-input.file_input_with_replacement {display: none;}
-input.file_input_replacement {
-  background: #e2e2e2;
-  padding: 10px;
-  border: none;
-  width: 100%;;
+table.dataTable thead .sorting:after{
+  opacity: 0 !important;
+  content: "\e150";
 }
-button.file_input_replacement {background: #252525; color: #fff; padding: 7px 10px; border-radius: 20px; border: none; }
+
+table.dataTable thead .sorting_asc:after{
+  content: "\e155";
+}
+table.dataTable thead .sorting_desc:after {
+  content: "\e155";
+}
+
+.ui-icon {
+  display: none;
+}

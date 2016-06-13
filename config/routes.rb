@@ -1,6 +1,21 @@
 Rails.application.routes.draw do
   root 'home#index'
   devise_for :users, :path => 'onepage', :controllers => {:registrations => "users/registrations", :sessions => "users/sessions", :passwords => "users/passwords", :unlocks => "users/unlocks"}, :path_names => {:sign_in => 'login', :sign_out => 'logout', :sign_up => 'register'}
+  get "home/list_of_users"
+  post "home/list_of_users"
+  get "home/remove_user"
+  post "home/remove_user"
+  patch "home/remove_user"
+  get "home/new_user_register"
+  get "home/new_user_register"
+  get "home/new_user_register"
+  get "home/save_user"
+  post "home/save_user"
+  patch "home/save_user"
+  get 'home/admin_landing_page'
+  get 'home/end_user_landing_page'
+
+
 
   get '*unmatched_route', :to => redirect('/')
   post '*unmatched_route', :to => redirect('/')

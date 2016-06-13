@@ -15,4 +15,5 @@
 //= require bootstrap
 //= require scrolling-nav
 //= require jquery.minicolors
+//= require dataTables/jquery.dataTables
 //= require_tree .
