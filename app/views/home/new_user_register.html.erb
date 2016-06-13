@@ -36,10 +36,10 @@
               </div>
               </br>
 
-              
+
               <div class="field">
                 <div class='input-group date'>
-                  <%= f.text_field :date_of_birth, class: "form-control", :value => Time.now.strftime("%m/%d/%Y"),  :placeholder => "MM/DD/YYYY", :id => "datepicker1", :style => "z-index: 100000;", :maxlength => 10 %>
+                  <%= f.text_field :date_of_birth, class: "form-control",  :placeholder => "MM/DD/YYYY", :id => "datepicker1", :style => "z-index: 100000;", :maxlength => 10 %>
                   <span class="input-group-addon">
                   <span class="glyphicon glyphicon-calendar" id="datepicker11" style="padding:0px 10px;  cursor:pointer"></span>
                  </span>
@@ -50,7 +50,6 @@
               <div class="field">
                 <label for="exampleInputEmail1" class="sr-only">Theme</label>
                 <%= f.text_field :theme, placeholder: "Theme", class: 'form-control minicolor', validate: false, :id => "picker", data: {'no-turbolink' => true}, as: :minicolors, input_html: {data: {minicolors: {theme: :bootstrap, position: :right}}} %>
-                <span class="" id="picker-show" style="display: none;font-size: 13px;color: red; font-weight: bold"> Please Select Theme</span>
               </div>
               </br>
 
@@ -84,23 +83,6 @@
 <script>
     $('#picker').minicolors();
 
-    errorcount = 0;
-    $(function () {
-        $('#picker').blur(function () {
-            var x = $(this).val();
-            x = $(this).val();
-            //alert ("Noigits"+x.length);
-            if (x.theme == "") {
-                //alert("here too "+x );
-                $("#picke-show").hide();
-            }
-            else {
-                //alert('here');
-                $("#picker-show").show();
-                errorcount++;
-            }
-        });
-    });
 
     $(document).ready(function () {
         $('#datepicker1').datepicker({
