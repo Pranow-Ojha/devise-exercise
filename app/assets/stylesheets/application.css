@@ -13,9 +13,9 @@
  *= require_tree .
  *= require bootstrap.css.scss
  *= require bootstrap_and_overrides
- *= require bootstrap_and_overrides
  *= require font-awesome
  *= require home.scss
+  *= require jquery-ui
  *= require scrolling-nav
  *= require jquery.minicolors
  *= require dataTables/jquery.dataTables

@@ -49,5 +49,6 @@ group :development do
   gem 'jquery-minicolors-rails'
   gem 'client_side_validations'
   gem 'jquery-datatables-rails'
+  gem 'jquery-ui-rails'
 end
 

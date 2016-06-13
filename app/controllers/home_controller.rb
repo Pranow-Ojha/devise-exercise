@@ -28,7 +28,11 @@ class HomeController < ApplicationController
 
   def save_user
     @user = User.new(end_user_params)
+    if (@user.mobile_number.blank? && @user.app_landing_image.blank?  && @user.icon.blank? && @user.org_name.blank? && @user.app_name.blank?)
+    @user.save(validate:false)
+    else
     @user.save
+    end
     redirect_to home_list_of_users_path
   end
 

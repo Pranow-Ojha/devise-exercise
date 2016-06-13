@@ -21,9 +21,9 @@ class User < ActiveRecord::Base
   validates :email, presence: {message: "Please enter Email"}
   validates :email, :allow_blank => true,:format => {:with => /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i}
   validates :password, presence: {message: "Please enter New Password"}
-  validates :address, presence: {message: "Please enter Address"}
-  validates :pin_code, presence: {message: "Please enter Pin Code"}
-  validates :date_of_birth, presence: {message: "Please enter Date Of Birth"}
+  #validates :address, presence: {message: "Please enter Address"}
+  #validates :pin_code, presence: {message: "Please enter Pin Code"}
+  #validates :date_of_birth, presence: {message: "Please enter Date Of Birth"}
 
   # validate :check_content_type_of_icon
   # validate :check_content_size_of_icon
