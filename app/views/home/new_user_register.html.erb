@@ -10,9 +10,9 @@
           </h1>
           </br>
           <h3 class="text-center">Sign up</h3>
-              <%= form_for User.new, :url => home_save_user_path, :method => "post", :validate => true do |f| %>
+          <%= form_for User.new, :url => home_save_user_path, :method => "post", :validate => true do |f| %>
 
-        <div class="field">
+              <div class="field">
                 <label for="exampleInputEmail1" class="sr-only">Name</label>
                 <%= f.text_field :name, placeholder: "Name", class: 'form-control', autofocus: true %>
               </div>
@@ -36,11 +36,16 @@
               </div>
               </br>
 
+              
               <div class="field">
-                <label for="exampleInputEmail1" class="sr-only">Date Of Birth</label>
-                <%= f.text_field :date_of_birth, placeholder: "Date Of Birth", class: 'form-control', autofocus: true %>
+                <div class='input-group date'>
+                  <%= f.text_field :date_of_birth, class: "form-control", :value => Time.now.strftime("%m/%d/%Y"),  :placeholder => "MM/DD/YYYY", :id => "datepicker1", :style => "z-index: 100000;", :maxlength => 10 %>
+                  <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar" id="datepicker11" style="padding:0px 10px;  cursor:pointer"></span>
+                 </span>
+                </div>
+                <br>
               </div>
-              </br>
 
               <div class="field">
                 <label for="exampleInputEmail1" class="sr-only">Theme</label>
@@ -81,7 +86,7 @@
 
     errorcount = 0;
     $(function () {
-        $('#picker').blur(function() {
+        $('#picker').blur(function () {
             var x = $(this).val();
             x = $(this).val();
             //alert ("Noigits"+x.length);
@@ -94,6 +99,15 @@
                 $("#picker-show").show();
                 errorcount++;
             }
+        });
+    });
+
+    $(document).ready(function () {
+        $('#datepicker1').datepicker({
+
+        });
+        $('#datepicker11').click(function () {
+            $('#datepicker1').focus();
         });
     });
 
