@@ -47,7 +47,7 @@
                   <td><%= u.email %></td>
                   <td><%= u.name %></td>
                   <td><%= u.mobile_number %></td>
-                  <td><%= u.role == 'end_user' %></td>
+                  <td><%= u.role %></td>
                   <td>
                  <span data-toggle="tooltip" data-placement="top" title="Remove User">
                     <%= link_to (image_tag "delete.png"), '#', 'data-target' => "#myModal_#{u.id}", 'data-toggle' => 'modal' %>
