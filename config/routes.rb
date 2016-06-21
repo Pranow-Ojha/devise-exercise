@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   patch "home/save_user"
   get 'home/admin_landing_page'
   get 'home/end_user_landing_page'
+  get 'home/list_of_end_users'
+  post 'home/list_of_end_users'
 
 
 

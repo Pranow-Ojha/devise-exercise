@@ -41,6 +41,10 @@ class HomeController < ApplicationController
     @users = User.all
   end
 
+  def list_of_end_users
+    @users = User.where(role: "end_user")
+  end
+
   def remove_user
     @user = User.find(params[:user_id])
     @user.destroy
