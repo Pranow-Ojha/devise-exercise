@@ -14,38 +14,38 @@
 ActiveRecord::Schema.define(version: 20160612155245) do
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                          default: "", null: false
-    t.string   "encrypted_password",             default: "", null: false
-    t.string   "reset_password_token"
+    t.string   "email",                          limit: 255, default: "", null: false
+    t.string   "encrypted_password",             limit: 255, default: "", null: false
+    t.string   "reset_password_token",           limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                  default: 0,  null: false
+    t.integer  "sign_in_count",                  limit: 4,   default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
-    t.string   "name"
-    t.string   "mobile_number"
-    t.string   "org_name"
-    t.string   "app_name"
-    t.string   "icon_file_name"
-    t.string   "icon_content_type"
-    t.integer  "icon_file_size"
+    t.string   "current_sign_in_ip",             limit: 255
+    t.string   "last_sign_in_ip",                limit: 255
+    t.datetime "created_at",                                              null: false
+    t.datetime "updated_at",                                              null: false
+    t.string   "name",                           limit: 255
+    t.string   "mobile_number",                  limit: 255
+    t.string   "org_name",                       limit: 255
+    t.string   "app_name",                       limit: 255
+    t.string   "icon_file_name",                 limit: 255
+    t.string   "icon_content_type",              limit: 255
+    t.integer  "icon_file_size",                 limit: 4
     t.datetime "icon_updated_at"
-    t.string   "app_landing_image_file_name"
-    t.string   "app_landing_image_content_type"
-    t.integer  "app_landing_image_file_size"
+    t.string   "app_landing_image_file_name",    limit: 255
+    t.string   "app_landing_image_content_type", limit: 255
+    t.integer  "app_landing_image_file_size",    limit: 4
     t.datetime "app_landing_image_updated_at"
-    t.string   "theme"
-    t.string   "role"
-    t.string   "pin_code"
-    t.string   "date_of_birth"
-    t.string   "address"
+    t.string   "theme",                          limit: 255
+    t.string   "role",                           limit: 255
+    t.string   "pin_code",                       limit: 255
+    t.string   "date_of_birth",                  limit: 255
+    t.string   "address",                        limit: 255
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
